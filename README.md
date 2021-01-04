@@ -1,16 +1,14 @@
-# baidu_speech
+订单指派后保留指派司机，成为成交率的凭证
 
-A new Flutter project.
+> 不接单会影响司机的成交率。
+> （成交率=指派完成量/指派实时听单量，只针对指派模式）
 
-## Getting Started
+### 成交率低会有什么影响？
++ 会影响您之后的指派订单数量。
++ 当两个或以上司机同抢一个预约单时，指派成交率最高的机将抢单成功；若司机们的成交率相等，先抢者获胜。
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 指派模式其他问题
++ 订单取消：司机拒绝订单会影响成交率；司机接单后，乘客取消订单不会导致成交率下降，但会影响到取消率
++ 服务：不需要提供额外服务，您根据接的订单类型进行相应服务即可
++ 计费：指派模式计费仍然相同，按照您接的订单类型计费。
++ 奖励：使用新模式有奖励，新版本上线后您注意收听滴滴播报

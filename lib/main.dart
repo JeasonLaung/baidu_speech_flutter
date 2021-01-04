@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:baidu_speech/page/all_route_page.dart';
 import 'package:baidu_speech/util.dart';
 import 'package:flutter/material.dart';
+import 'package:fluwe/fluwe.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -16,14 +18,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OKToast(
-        child: MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: FluweApp(
+          child: MyHomePage(title: '百度语音合成'),
+        ),
       ),
-      home: MyHomePage(title: '百度语音合成'),
-    ));
+    );
   }
 }
 
@@ -214,6 +219,17 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.path ?? widget.title ?? ''),
+        actions: [
+          IconButton(icon: Icon(Icons.calculate), onPressed: () {}),
+          IconButton(
+              icon: Icon(Icons.filter_none),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return AllRoutePage();
+                }));
+              }),
+        ],
       ),
       body: Builder(
         builder: (ctx) => RefreshIndicator(
